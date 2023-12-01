@@ -2,8 +2,8 @@
 
 rd_version='0.1.1a'
 
-# change version when updating rd_files
-rd_files='chrome/flags.sh \
+# change version when updating rd_list
+rd_list='chrome/flags.sh \
 shitrix/db.sh \
 shitrix/install.sh \
 sql/dumps.sql'
