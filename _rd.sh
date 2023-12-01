@@ -5,7 +5,7 @@ rd_version='0.1.3a'
 # change version when updating rd_list
 rd_list="chrome.sh \
 shitrix.sh \
-sql.sql\
+sql.sql \
 mysqldump.sh"
 
 rd_url='https://raw.githubusercontent.com/romandobra/snips/main'
