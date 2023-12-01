@@ -29,10 +29,18 @@ rd_new_version=$( cat /tmp/_rd_new.sh | grep -m 1 "rd_version=" | cut -d"'" -f2;
     rm -rf /tmp/_rd_new.sh
 }
 
-for file in ${rd_list}; do
-    wget -qO - $rd_url/$file | {
-        [ -z $1 ] && { cat -; } || { grep $1; }
+rd_wget(){
+    wget -qO - $rd_url/$1 | {
+        [ -z $1 ] && {
+            cat -
+        } || {
+            grep $2
+        }
     }
+}
+
+for file in ${rd_list}; do
+    rd_wget $file "$1"
 done
 
 exit 0
