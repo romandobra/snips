@@ -3,3 +3,6 @@ SELECT table_name, table_rows INTO OUTFILE '/var/lib/mysql-files/tables-with-rec
 
 -- bash script to search for a PATTERN in db
 -- mysqldump -pPASSWORD database | grep PATTERN | less -S
+
+-- new root password
+UPDATE mysql.user SET authentication_string = PASSWORD('password') WHERE User = 'root' AND Host = 'localhost';
