@@ -20,3 +20,7 @@ wget https://repo.bitrix.info/yum/bitrix-env.sh && chmod +x bitrix-env.sh
 # sed -i -e '/\[remi-php80\]/,/^\[/s/enabled=1/enabled=0/' /etc/yum.repos.d/remi-php80.repo
 
 ./bitrix-env.sh
+
+# passwords
+cat /bitrix/php_interface/dbconn.php
+cat /bitrix/.settings.php
