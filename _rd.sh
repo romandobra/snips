@@ -1,12 +1,12 @@
 #!/bin/env bash
 
-rd_version='0.1.3a'
+rd_version='0.1.4a'
 
 # change version when updating rd_list
-rd_list="chrome.sh \
-shitrix.sh \
-sql.sql \
-mysqldump.sh"
+rd_list="chrome \
+shitrix \
+sql \
+mysqldump"
 
 rd_url='https://raw.githubusercontent.com/romandobra/snips/main'
 
