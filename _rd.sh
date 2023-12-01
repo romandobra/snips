@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-rd_version='0.1.1a'
+rd_version='0.1.1a-update-test'
 
 rd_url='https://raw.githubusercontent.com/romandobra/snips/main'
 
