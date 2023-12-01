@@ -29,21 +29,50 @@ rd_new_version=$( cat /tmp/_rd_new.sh | grep -m 1 "rd_version=" | cut -d"'" -f2;
     rm -rf /tmp/_rd_new.sh
 }
 
+[ -z $1 ] && {
+    echo "Usage: $0 grep_params|pattern|dot_for_whole_file filename|pattern"
+    exit 1
+}
+
 rd_grep="grep $1"
 
 rd_wget(){
     wget -qO - $rd_url/files/$1 | {
-        [ -z $1 ] && {
+        [ -z $2 ] && {
             cat -
         } || {
-            $rd_grep
+            [ "x$2" == 'x.' ] && {
+                cat -
+            } || {
+                $rd_grep
+            }
         }
     }
 }
 
 for file in ${rd_list}; do
-    [ ! -z $2 ] || echo "- $file:"
-    rd_wget $file
+
+#   if filename is given
+    [ ! -z $2 ] && {
+
+#       if filename exact
+        [ $2 == $file ] && {
+            rd_wget $file $1
+            exit 0
+        }
+
+#       if filename match
+        case "$file" in *$2* )
+            echo "- $file:"
+            rd_wget $file $1;;
+        esac || continue
+    } || {
+
+#   if filename is not given
+        echo "- $file:"
+        rd_wget $file $1
+    }
+
 done
 
 exit 0
