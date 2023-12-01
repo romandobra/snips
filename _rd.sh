@@ -2,6 +2,12 @@
 
 rd_version='0.1.1a'
 
+#change version when updating rd_files
+rd_files='chrome/flags.sh \
+shitrix/db.sh
+shitrix/install.sh
+sql/dumps.sql'
+
 rd_url='https://raw.githubusercontent.com/romandobra/snips/main'
 
 wget --no-cache --no-cookies -qO /tmp/_rd_new.sh "$rd_url/_rd.sh?token=$(date +%s)"
