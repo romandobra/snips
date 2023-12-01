@@ -3,10 +3,10 @@
 rd_version='0.1.1a'
 
 # change version when updating rd_list
-rd_list='chrome/flags.sh \
+rd_list="chrome/flags.sh \
 shitrix/db.sh \
 shitrix/install.sh \
-sql/dumps.sql'
+sql/dumps.sql"
 
 rd_url='https://raw.githubusercontent.com/romandobra/snips/main'
 
@@ -19,11 +19,20 @@ rd_new_version=$( cat /tmp/_rd_new.sh | grep -m 1 "rd_version=" | cut -d"'" -f2;
     [ $rd_update == y ] && {
         echo "Updating..."
         (
-            sleep 1; cat /tmp/_rd_new.sh > $0; echo; echo "Done! Please restart '$0 $@'"; rm -rf /tmp/_rd_new.sh
+            sleep 1
+            cat /tmp/_rd_new.sh > $0
+            echo; echo "Done! Please restart '$0 $@'"
+            rm -rf /tmp/_rd_new.sh
         ) &
         exit 0
     }
     rm -rf /tmp/_rd_new.sh
 }
+
+for file in ${rd_list}; do
+    wget -qO - $rd_url/$file | {
+        [ -z $1 ] && { cat -; } || { grep $1; }
+    }
+done
 
 exit 0
