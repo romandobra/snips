@@ -4,7 +4,7 @@ rd_version='0.1.1a'
 
 rd_url='https://raw.githubusercontent.com/romandobra/snips/main'
 
-wget --no-cache --no-cookies -qO /tmp/_rd_new.sh $rd_url/_rd.sh
+wget --no-cache --no-cookies -qO /tmp/_rd_new.sh "$rd_url/_rd.sh?token=$(date +%s)"
 rd_new_version=$( cat /tmp/_rd_new.sh | grep -m 1 "rd_version=" | cut -d"'" -f2; )
     
 [ $rd_new_version == $rd_version ] || {
