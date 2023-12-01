@@ -41,6 +41,7 @@ rd_wget(){
 }
 
 for file in ${rd_list}; do
+    echo $file:
     rd_wget $file
 done
 
