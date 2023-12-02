@@ -1,3 +1,7 @@
-# passwords
+# .sh 0 passwords
 cat /bitrix/php_interface/dbconn.php
 cat /bitrix/.settings.php
+
+# .sql 0 upload folder
+SELECT ID,MODULE_ID,FILE_NAME INTO OUTFILE '/var/lib/mysql-files/b_file.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' FROM b_file;
+
