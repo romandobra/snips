@@ -1,10 +1,11 @@
 #!/bin/env bash
 
-rd_version='0.1.4a'
+rd_version='0.1.5a'
 
 # change version when updating rd_list
 rd_list="chrome \
 shitrix \
+shitrix-install \
 sql \
 mysqldump"
 
