@@ -1,0 +1,15 @@
+#!/bin/env bash
+
+set -e
+
+[ -z $1 ] && exit 1
+[ -d $1 ] || exit 2
+
+IN_DIR=$(pwd)/$1
+OUT_DIR=/tmp/e_$1
+
+mkdir $OUT_DIR
+cd $OUT_DIR
+cat $IN_DIR/*.tar.* | tar --exclude=upload/* --exclude=bitrix/* -zivxf -
+
+exit
