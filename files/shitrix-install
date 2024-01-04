@@ -2,7 +2,7 @@
 
 timedatectl set-timezone $MY_TZ
 
-yum clean all && yum update
+yum -y clean all && yum update
 yum -y install mc ncdu
 
 wget https://repo.bitrix.info/yum/bitrix-env.sh && chmod +x bitrix-env.sh
